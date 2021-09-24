@@ -16,13 +16,17 @@ module.exports = {
         use: {
           loader: 'babel-loader',
         }
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
       }
     ]
   },
   devServer: {
     contentBase: './',
     compress: true,
-    port: 9000,
+    port: 9010,
     hot: true,
   },
   plugins: [
