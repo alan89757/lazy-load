@@ -8,7 +8,7 @@ module.exports = {
   output:{
     filename:'[name].js',
     chunkFilename:'[name].js',// 设置按需加载后的chunk名字
-    publicPath:'dist/'
+    // publicPath:'dist/'
   },
   module: {
     rules: [
@@ -28,11 +28,22 @@ module.exports = {
   devServer: {
     // contentBase: './',
     static: {
-        directory: path.join(__dirname, 'dist'),
-      },
-    compress: true,
+        directory: path.join(__dirname, './dist'),
+    },
+    open: true,
     port: 9010,
     hot: true,
+    compress: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    },
+    // proxy: {
+    //   ["/"]: {
+    //     bypass: function(req, res, proxyOptions) {
+    //       return "/index.html"
+    //     }
+    //   }
+    // }
   },
   plugins: [
     new HtmlWebpackPlugin({
