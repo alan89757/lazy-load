@@ -1,5 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
 module.exports = {
   entry:'./a.js',
   mode:'development',
@@ -24,13 +26,22 @@ module.exports = {
     ]
   },
   devServer: {
-    contentBase: './',
+    // contentBase: './',
+    static: {
+        directory: path.join(__dirname, 'dist'),
+      },
     compress: true,
     port: 9010,
     hot: true,
   },
   plugins: [
-      new webpack.NamedModulesPlugin(),
+    new HtmlWebpackPlugin({
+        template: path.resolve(__dirname, './index.html')
+    }),
+    //   new webpack.NamedModulesPlugin(),
       new webpack.HotModuleReplacementPlugin()
   ],
+  optimization: {
+    moduleIds: "named",
+  }
 }
