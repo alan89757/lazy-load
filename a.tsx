@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React,{Component} from 'react';
 import { BrowserRouter as Router, Route, Switch,Link } from 'react-router-dom';
 import ReactDom from 'react-dom';
@@ -7,11 +8,11 @@ const Loading = (props) => {
   return <div>Loading...</div>
 };
 const B = Loadable({
-  loader: () => import('./b.js'),
+  loader: () => import('./b.tsx'),
   loading: Loading,
 })
 const C = Loadable({
-  loader: () => import('./c.js'),
+  loader: () => import('./c.tsx'),
   loading: Loading,
 })
 export default class A extends Component{

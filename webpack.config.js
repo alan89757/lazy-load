@@ -3,7 +3,7 @@ var webpack = require('webpack');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry:'./a.js',
+  entry:'./a.tsx',
   mode:'development',
   output:{
     filename:'[name].js',
@@ -13,11 +13,16 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.tsx$/,
         exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
-        }
+        use: [
+            {
+                loader: 'babel-loader',
+            },
+            {
+                loader: 'ts-loader'
+            }
+        ]
       },
       {
         test: /\.css$/,

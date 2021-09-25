@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React,{Component} from 'react';
 import { Button } from "antd";
 export default class B extends Component{

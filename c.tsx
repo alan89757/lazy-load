@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React,{Component} from 'react';
 import { Route,Link} from 'react-router-dom';
 import Loadable from 'react-loadable';
@@ -7,7 +8,7 @@ const Loading = (props) => {
 };
 
 const D = Loadable({
-  loader: () => import('./d.js'),
+  loader: () => import('./d.tsx'),
   loading: Loading,
 })
 export default class C extends Component{
